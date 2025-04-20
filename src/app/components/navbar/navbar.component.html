@@ -1,0 +1,19 @@
+<header class="navbar">
+    <div class="navbar__left">
+        <a routerLink="/" class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wildberries_logo.svg/2560px-Wildberries_logo.svg.png" alt="Wildberries" />
+          </a>
+          
+      <button class="menu-btn" (click)="toggleMenu()">☰</button>
+      <input type="text" placeholder="Найти на Wildberries" class="search-input" />
+    </div>
+  
+    <div class="navbar__right">
+      <a href="#"><i class="icon">🛒</i><span>Корзина</span></a>
+      <a href="#"><i class="icon">👤</i><span>Войти</span></a>
+     
+    </div>
+  </header>
+  
+  <app-sidebar-menu *ngIf="menuOpen"></app-sidebar-menu>
+  
