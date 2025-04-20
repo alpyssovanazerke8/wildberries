@@ -1,0 +1,16 @@
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  .price {
+    color: #a74f9f;
+    font-weight: bold;
+  }
+  

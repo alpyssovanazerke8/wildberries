@@ -1,0 +1,13 @@
+<a [routerLink]="['/product', product.id]" class="card-link">
+    <div class="product-card">
+      <img [src]="product.image" alt="Product" />
+      <h4>{{ product.name }}</h4>
+      <p class="price">{{ product.price }} ₸</p>
+      <p class="rating">⭐ {{ product.rating }}</p>
+    </div>
+  </a>
+  
+  <button class="cart-btn" (click)="toggleCart(); $event.stopPropagation()">
+    {{ isInCart ? 'В корзине' : 'Завтра' }}
+  </button>
+  
