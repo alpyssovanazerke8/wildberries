@@ -22,3 +22,5 @@ The project also includes an admin panel for managing products, categories, user
 
 **Authors:**  
 Zhaxylykova Dariya, Alypssova Nazerke, Doskozha Kamila
+
+**Presentation:** https://www.canva.com/design/DAGlSaGDreo/kdQZkDLLL8CPFehluRGMhQ/view?utm_content=DAGlSaGDreo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha94321655a
