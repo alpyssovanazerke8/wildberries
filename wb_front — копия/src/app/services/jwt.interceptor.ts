@@ -4,20 +4,17 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const token = localStorage.getItem('token');
-
-    // 🚫 Не добавляем токен для открытого доступа к продуктам
-    if (req.url.includes('/api/products/') && req.method === 'GET') {
-      return next.handle(req);
-    }
-
+    const token = localStorage.getItem('access_token');
     if (token) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`)
       });
       return next.handle(cloned);
     }
+    if (req.url.includes('/categories/') && req.method === 'GET') {
 
+    }
     return next.handle(req);
   }
+  
 }

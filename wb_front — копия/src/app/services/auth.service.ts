@@ -11,9 +11,12 @@ export class AuthService {
     
     constructor(private http: HttpClient, private router: Router) {}
 
-  login(username: string, password: string) {
-    return this.http.post(this.apiUrl, { username, password });
-  }
+    login(username: string, password: string) {
+        return this.http.post<any>(this.apiUrl, {
+          username,
+          password
+        });
+      }
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);

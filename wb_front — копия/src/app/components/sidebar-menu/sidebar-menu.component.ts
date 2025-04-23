@@ -1,20 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import { Category } from '../../models';
+import { CategoryService } from '../../services/category.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-menu',
-  imports: [CommonModule],
+  standalone:true,
+  imports: [CommonModule], 
   templateUrl: './sidebar-menu.component.html',
-  styleUrl: './sidebar-menu.component.css'
+  styleUrls: ['./sidebar-menu.component.css']
 })
-export class SidebarMenuComponent {
-  categories = [
-    { icon: '💸', label: 'РАСПРОДАЖА' },
-    { icon: '👗', label: 'Женщинам' },
-    { icon: '👟', label: 'Обувь' },
-    { icon: '✂️', label: 'Детям' },
-    { icon: '👔', label: 'Мужчинам' },
-    { icon: '🏠', label: 'Дом' },
-  ];
+export class SidebarMenuComponent implements OnInit {
+  categories: Category[] = [];
 
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+    this.categoryService.getCategories().subscribe({
+      next: (data: Category[]) => {
+        this.categories = data;
+        console.log('Категории:', data);
+      },
+      error: (error) => {
+        console.error('Ошибка при загрузке категорий:', error);
+      }
+    });
+  }
 }

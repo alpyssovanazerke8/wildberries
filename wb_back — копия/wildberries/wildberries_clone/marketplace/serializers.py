@@ -39,8 +39,8 @@ class ProductModelSerializer(serializers.ModelSerializer):
     oldPrice = serializers.SerializerMethodField()
     isDiscounted = serializers.SerializerMethodField()
     isFavorite = serializers.SerializerMethodField()
-    rating = serializers.FloatField(default=4.8)  # временно
-    reviewsCount = serializers.IntegerField(default=123)  # временно
+    rating = serializers.FloatField(default=4.8)  
+    reviewsCount = serializers.IntegerField(default=123)  
 
     class Meta:
         model = Product
@@ -77,7 +77,7 @@ class CartItemModelSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
         return super().create(validated_data)
-        
+
 class OrderModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order

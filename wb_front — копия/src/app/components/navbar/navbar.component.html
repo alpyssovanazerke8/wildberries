@@ -1,7 +1,7 @@
 <header class="navbar">
     <div class="navbar__left">
         <a routerLink="/" class="logo">
-            <img src="" alt="Wildberries" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Wildberries_Logo.png" alt="Wildberries" />
           </a>
           
       <button class="menu-btn" (click)="toggleMenu()">☰</button>
@@ -9,15 +9,24 @@
     </div>
   
     <div class="navbar__right">
-      <a routerLink="/cart" class="icon-link">
+      <a routerLink="/cart" class="nav-link">
         <i class="fas fa-shopping-cart"></i>
         <span>Корзина</span>
       </a>
-      <a *ngIf="isLoggedIn(); else login" routerLink="/profile">Профиль</a>
+    
+      <ng-container *ngIf="isLoggedIn(); else login">
+        <a routerLink="/profile" class="nav-link">
+          <i class="fas fa-user"></i>
+          <span>Профиль</span>
+        </a>
+      </ng-container>
+    
       <ng-template #login>
-        <a routerLink="/login">Войти</a>
+        <a routerLink="/login" class="nav-link">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Войти</span>
+        </a>
       </ng-template>
-     
     </div>
   </header>
   

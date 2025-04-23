@@ -1,9 +1,7 @@
 <div class="sidebar">
-    <ul>
-      <li *ngFor="let cat of categories">
-        <span class="icon">{{ cat.icon }}</span>
-        <span class="label">{{ cat.label }}</span>
-      </li>
-    </ul>
-  </div>
-  
+  <ul>
+    <li *ngFor="let category of categories">
+      {{ category.name }}
+    </li>
+  </ul>
+</div>

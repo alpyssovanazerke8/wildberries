@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404
-
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Product, Category, CartItem, Order
 from .serializers import (
     UserSerializer, CategorySerializer, ProductModelSerializer,
@@ -18,24 +19,45 @@ from .models import Product
 from .serializers import ProductModelSerializer
 
 
-# FBV для аутентификации
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def user_login(request):
     username = request.data.get('username')
     password = request.data.get('password')
-
     user = authenticate(username=username, password=password)
-
     if user:
-        token, _ = Token.objects.get_or_create(user=user)
+        refresh = RefreshToken.for_user(user)
         return Response({
-            'token': token.key,
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
             'user_id': user.id,
             'username': user.username
         }, status=status.HTTP_200_OK)
+        print("USERNAME:", request.data.get('username'))
+        print("PASSWORD:", request.data.get('password'))
+    return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-    return Response({'error': 'Неверные учетные данные'}, status=status.HTTP_401_UNAUTHORIZED)
+# # FBV для аутентификации
+# @api_view(['POST'])
+# @permission_classes([AllowAny])
+# def user_login(request):
+#     print("USERNAME:", request.data.get('username'))
+#     print("PASSWORD:", request.data.get('password'))
+#     username = request.data.get('username')
+#     password = request.data.get('password')
+
+#     user = authenticate(username=username, password=password)
+
+#     if user:
+#         token, _ = Token.objects.get_or_create(user=user)
+#         return Response({
+#             'token': token.key,
+#             'user_id': user.id,
+#             'username': user.username
+#         }, status=status.HTTP_200_OK)
+
+#     return Response({'error': 'Неверные учетные данные'}, status=status.HTTP_401_UNAUTHORIZED)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

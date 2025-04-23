@@ -5,6 +5,7 @@ import { Product } from '../../models';
 
 @Component({
   selector: 'app-profile',
+  standalone:true,
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

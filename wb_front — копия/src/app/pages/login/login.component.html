@@ -1,5 +1,11 @@
-<h2>Войти</h2>
-<input [(ngModel)]="username" placeholder="Логин">
-<input [(ngModel)]="password" type="password" placeholder="Пароль">
-<button (click)="login()">Войти</button>
-<p *ngIf="error">{{ error }}</p>
+<div class="login-container">
+    <div class="login-box">
+      <h1>Войти</h1>
+      <form (ngSubmit)="login()">
+        <input [(ngModel)]="username" name="username" placeholder="Логин" required>
+        <input [(ngModel)]="password" name="password" type="password" placeholder="Пароль" required>
+        <button type="submit">Войти</button>
+      </form>
+      <div *ngIf="error" class="error">{{ error }}</div>
+    </div>
+  </div>
