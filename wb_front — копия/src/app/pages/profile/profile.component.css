@@ -1,0 +1,68 @@
+.profile-page {
+    padding: 20px;
+  }
+  
+  .header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6f6f6;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .user-info {
+    display: flex;
+    gap: 12px;
+  
+    .avatar {
+      width: 50px;
+      height: 50px;
+      background: gray;
+      border-radius: 50%;
+    }
+  }
+  
+  .stats {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .quick-actions {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  
+    .card {
+      flex: 1;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  }
+  
+  .support {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  
+    button {
+      flex: 1;
+      background: #eee;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+  
+  .recommendations {
+    h3 {
+      margin-bottom: 10px;
+    }
+  }

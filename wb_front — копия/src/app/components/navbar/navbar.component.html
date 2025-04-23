@@ -1,0 +1,25 @@
+<header class="navbar">
+    <div class="navbar__left">
+        <a routerLink="/" class="logo">
+            <img src="" alt="Wildberries" />
+          </a>
+          
+      <button class="menu-btn" (click)="toggleMenu()">☰</button>
+      <input type="text" placeholder="Найти на Wildberries" class="search-input" />
+    </div>
+  
+    <div class="navbar__right">
+      <a routerLink="/cart" class="icon-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Корзина</span>
+      </a>
+      <a *ngIf="isLoggedIn(); else login" routerLink="/profile">Профиль</a>
+      <ng-template #login>
+        <a routerLink="/login">Войти</a>
+      </ng-template>
+     
+    </div>
+  </header>
+  
+  <app-sidebar-menu *ngIf="menuOpen"></app-sidebar-menu>
+  

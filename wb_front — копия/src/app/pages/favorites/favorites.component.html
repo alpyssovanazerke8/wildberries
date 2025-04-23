@@ -1,0 +1,16 @@
+<section class="favorites">
+    <h2>Избранное</h2>
+  
+    <div *ngIf="favorites.length > 0; else noFavorites">
+      <div class="favorites-list">
+        <app-product-card
+          *ngFor="let product of favorites"
+          [product]="product"
+        ></app-product-card>
+      </div>
+    </div>
+  
+    <ng-template #noFavorites>
+      <p>У вас пока нет избранных товаров.</p>
+    </ng-template>
+  </section>

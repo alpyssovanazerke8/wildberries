@@ -1,0 +1,5 @@
+<h2>Войти</h2>
+<input [(ngModel)]="username" placeholder="Логин">
+<input [(ngModel)]="password" type="password" placeholder="Пароль">
+<button (click)="login()">Войти</button>
+<p *ngIf="error">{{ error }}</p>
